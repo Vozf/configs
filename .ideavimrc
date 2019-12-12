@@ -1,0 +1,12 @@
+" Press `q` to activate AceJump
+map q :action AceAction<CR>
+
+set surround
+set easymotion
+set multiple-cursors
+set commentary
+
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
