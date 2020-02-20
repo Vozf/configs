@@ -119,6 +119,9 @@ fi
 # added by Anaconda3 installer
 export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH"
 
+export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda-10.0/bin:/usr/local/cuda-10.0/NsightCompute-2019.1${PATH:+:${PATH}}
+
 . /usr/share/undistract-me/long-running.bash
 notify_when_long_running_commands_finish_install
 
@@ -129,6 +132,12 @@ export g2=' -p 2200 a_yaroshevich@gpu-02.indatalabs.com'
 export g3=' -p 2200 a_yaroshevich@gpu-03.indatalabs.com'
 export g4=' -p 2200 a_yaroshevich@gpu-04.indatalabs.com'
 export g5=' -p 2200 a_yaroshevich@gpu-05.indatalabs.com'
+export g6=' -p 2200 a_yaroshevich@gpu-06.indatalabs.com'
+export g7=' -p 2200 a_yaroshevich@gpu-07.indatalabs.com'
+export g8=' -p 2200 a_yaroshevich@gpu-08.indatalabs.com'
+export g9=' -p 2200 a_yaroshevich@gpu-09.indatalabs.com'
+export g10=' -p 2200 a_yaroshevich@gpu-10.indatalabs.com'
+export g11=' -p 2200 a_yaroshevich@gpu-11.indatalabs.com'
 export gstorage=' -p 2200 a_yaroshevich@gpu-storage.indatalabs.com'
 export gstorageglobal=' -p 2200 gpu-storage@gpu-storage.indatalabs.com'
 export gl=' a_yaroshevich@gpu-01.idl.iv'
@@ -184,11 +193,13 @@ alias sshg4='ssh -p 2200 a_yaroshevich@g-04.indatalabs.com'
 alias sshg1l='ssh a_yaroshevich@g-01.idl.iv'
 alias sshpflocal='ssh -L localhost:6060:localhost:6060 a_yaroshevich@g-01.idl.iv'
 alias sshpf4='ssh -L localhost:6064:localhost:6060 ${g4}'
-alias sshfsgstorage='sshfs -p 2200 gpu-storage@gpu-storage.indatalabs.com:/home  gstorage/'
+alias sshfsgstorage='sshfs -p 2200 gpu-storage@gpu-storage.indatalabs.com:/home/gpu-storage/storage  gstorage/'
 alias copy='xclip -selection clipboard'
 alias path='readlink -f'
-alias trackscroll='xinput set-prop 13 "libinput Scroll Method Enabled" 0, 0, 1 && xinput set-prop 13 "libinput Button Scrolling Button" 8'
+alias trackscroll='/bin/bash -c "sleep 15 && xinput set-prop $(xinput | grep M570 |  awk '{print substr($5,4,2)}') \"libinput Scroll Method Enabled\" 0, 0, 1 && xinput set-prop $(xinput | grep M570 |  awk '{print substr($5,4,2)}') \"libinput Button Scrolling Button\" 8" 17'
 alias jn='jupyter notebook'
 alias copytogstorage='rsync -arz --info=progress2  ../../new_auto_masks.zip  -e "ssh -p 2200" gpu-storage@gpu-storage.indatalabs.com:~/storage/removebg/datasets/Bag_full_3'
 
 export -f pf sshg sshpf sshjn sshkilljn remotefs sshjnsettheme sshjnsetjn sshjnsetext jnport tbport 
+
+set -o vi
