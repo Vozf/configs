@@ -196,7 +196,7 @@ alias sshpf4='ssh -L localhost:6064:localhost:6060 ${g4}'
 alias sshfsgstorage='sshfs -p 2200 gpu-storage@gpu-storage.indatalabs.com:/home/gpu-storage/storage  gstorage/'
 alias copy='xclip -selection clipboard'
 alias path='readlink -f'
-alias trackscroll='/bin/bash -c "sleep 15 && xinput set-prop $(xinput | grep M570 |  awk '{print substr($5,4,2)}') \"libinput Scroll Method Enabled\" 0, 0, 1 && xinput set-prop $(xinput | grep M570 |  awk '{print substr($5,4,2)}') \"libinput Button Scrolling Button\" 8" 17'
+alias trackscroll='xinput set-prop $(xinput | grep M570 |  awk \"{print substr($5,4,2)}\") "libinput Scroll Method Enabled" 0, 0, 1 && xinput set-prop $(xinput | grep M570 |  awk \"{print substr($5,4,2)}\") "libinput Button Scrolling Button" 8'
 alias jn='jupyter notebook'
 alias copytogstorage='rsync -arz --info=progress2  ../../new_auto_masks.zip  -e "ssh -p 2200" gpu-storage@gpu-storage.indatalabs.com:~/storage/removebg/datasets/Bag_full_3'
 
