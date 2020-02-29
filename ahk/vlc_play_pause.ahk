@@ -4,7 +4,7 @@ SetTitleMatchMode, 2
 if WinExist("VLC") {
   ControlSend,,{space}, VLC
 }
-else {
+else if WinExist("YouTube") {
 
 	ControlGet, controlID, Hwnd,,Chrome_RenderWidgetHostHWND1, YouTube
 	
@@ -14,4 +14,15 @@ else {
 	; Checks to make sure YouTube isn't the first tab before starting the loop
 	; Saves time when youtube is the tab it's on
 	ControlSend, Chrome_RenderWidgetHostHWND1, {space} , YouTube
+}
+else if WinExist("Кухня") {
+
+	ControlGet, controlID, Hwnd,,Chrome_RenderWidgetHostHWND1, Кухня
+	
+	; Focuses on chrome without breaking focus on what you're doing
+	ControlFocus,,ahk_id %controlID%
+	
+	; Checks to make sure YouTube isn't the first tab before starting the loop
+	; Saves time when youtube is the tab it's on
+	ControlSend, Chrome_RenderWidgetHostHWND1, {space} , Кухня
 }
