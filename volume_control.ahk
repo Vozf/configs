@@ -3,31 +3,16 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
- WheelUp::
-      if( GetKeyState("XButton2") ) {
-           Send, {Volume_Up}
-      }
-      else {
-           Send, {WheelUp}
-      }
+ ~XButton2 & WheelUp::
+      Send, {Volume_Up}
  Return
 
- WheelDown::
-      if( GetKeyState("XButton2") ) {
-           Send, {Volume_Down}
-      }
-      else {
-           Send, {WheelDown}
-      }
+ ~XButton2 & WheelDown::
+      Send, {Volume_Down}
  Return
 
- MButton::
-      if( GetKeyState("XButton2") ) {
-           Send, {Volume_Mute}
-      }
-      else {
-           Send, {MButton}
-      }
+ ~XButton2 & MButton::
+      Send, {Volume_Mute}
  Return
 
  CapsLock::Send, {Ctrl Down}{Shift Down}{Shift Up}{Ctrl Up}
