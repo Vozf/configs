@@ -199,6 +199,7 @@ alias path='readlink -f'
 alias trackscroll='xinput set-prop $(xinput | grep M570 |  awk '\''{print substr($5,4,2)}'\'') "libinput Scroll Method Enabled" 0, 0, 1 && xinput set-prop $(xinput | grep M570 |  awk '\''{print substr($5,4,2)}'\'') "libinput Button Scrolling Button" 8'
 alias jn='jupyter notebook'
 alias copytogstorage='rsync -arz --info=progress2  ../../new_auto_masks.zip  -e "ssh -p 2200" gpu-storage@gpu-storage.indatalabs.com:~/storage/removebg/datasets/Bag_full_3'
+alias shoot='killall -s KILL -r '
 
 export -f pf sshg sshpf sshjn sshkilljn remotefs sshjnsettheme sshjnsetjn sshjnsetext jnport tbport 
 
