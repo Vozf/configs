@@ -5,6 +5,10 @@ set surround
 set easymotion
 set multiple-cursors
 set commentary
+set ReplaceWithRegister
+set argtextobj
+set textobj-entire
+
 
 set incsearch
 set hlsearch
