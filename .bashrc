@@ -116,32 +116,26 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 installer
-export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/a_yaroshevich/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/a_yaroshevich/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/a_yaroshevich/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export PATH=/usr/local/cuda-10.0/bin:/usr/local/cuda-10.0/NsightCompute-2019.1${PATH:+:${PATH}}
 
 . /usr/share/undistract-me/long-running.bash
 notify_when_long_running_commands_finish_install
 
-defaultg=$g1l
-
-export g1=' -p 2200 a_yaroshevich@gpu-01.indatalabs.com'
-export g2=' -p 2200 a_yaroshevich@gpu-02.indatalabs.com'
-export g3=' -p 2200 a_yaroshevich@gpu-03.indatalabs.com'
-export g4=' -p 2200 a_yaroshevich@gpu-04.indatalabs.com'
-export g5=' -p 2200 a_yaroshevich@gpu-05.indatalabs.com'
-export g6=' -p 2200 a_yaroshevich@gpu-06.indatalabs.com'
-export g7=' -p 2200 a_yaroshevich@gpu-07.indatalabs.com'
-export g8=' -p 2200 a_yaroshevich@gpu-08.indatalabs.com'
-export g9=' -p 2200 a_yaroshevich@gpu-09.indatalabs.com'
-export g10=' -p 2200 a_yaroshevich@gpu-10.indatalabs.com'
-export g11=' -p 2200 a_yaroshevich@gpu-11.indatalabs.com'
-export gstorage=' -p 2200 a_yaroshevich@gpu-storage.indatalabs.com'
-export gstorageglobal=' -p 2200 gpu-storage@gpu-storage.indatalabs.com'
-export gl=' a_yaroshevich@gpu-01.idl.iv'
-export vebuin_aws=' ubuntu@ec2-3-112-66-222.ap-northeast-1.compute.amazonaws.com'
+defaultg=g1
 
 #alias sshg='ssh ${defaultg}'
 sshg() { ssh ${@:-$defaultg}; }
@@ -158,11 +152,11 @@ remotefs() { sshfs ${1:-$defaultg}:/${2:-/} ${3:-~/remote}; }
 jnport() {
 	base_port=880;
 	case $1 in
-		"$g1") base_port+=1 ;;
-		"$g2") base_port+=2 ;;
-		"$g3") base_port+=3 ;;
-		"$g4") base_port+=4 ;;
-		"$g5") base_port+=5 ;;
+		"g1") base_port+=1 ;;
+		"g2") base_port+=2 ;;
+		"g3") base_port+=3 ;;
+		"g4") base_port+=4 ;;
+		"g5") base_port+=5 ;;
 		*) return ;;
 	esac 
 	echo "$base_port"
@@ -171,28 +165,19 @@ jnport() {
 tbport() {
 	base_port=606;
 	case $1 in
-		"$g1") base_port+=1 ;;
-		"$g2") base_port+=2 ;;
-		"$g3") base_port+=3 ;;
-		"$g4") base_port+=4 ;;
-		"$g5") base_port+=5 ;;
+		"g1") base_port+=1 ;;
+		"g2") base_port+=2 ;;
+		"g3") base_port+=3 ;;
+		"g4") base_port+=4 ;;
+		"g5") base_port+=5 ;;
 		*) return ;;
 	esac 
 	echo "$base_port"
 }
 
 
-#alias sshjn='ssh -L localhost:${jnport}:localhost:${jnport} ${defaultg} "export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH"; source activate rnd; jupyter notebook --port ${jnport}"'
-#alias sshkilljn='ssh ${defaultg} "fuser -k ${jnport}/tcp"'
-alias sshtb='ssh -L :6060:127.0.0.1:6060 ${defaultg} "export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH"; source activate rnd;tensorboard --logdir /tmp/pycharm_project_211/output/training_logs/summaries/" --port 6060'
 alias sshkilltb='ssh  ${defaultg} "killall -r tensorboard"'
-#alias sshpf='ssh -L localhost:6060:localhost:6060 ${defaultg}'
 
-# alias remotefs='sshfs -p 2200  g-04.indatalabs.com:/home ~/remote'
-alias sshg4='ssh -p 2200 a_yaroshevich@g-04.indatalabs.com'
-alias sshg1l='ssh a_yaroshevich@g-01.idl.iv'
-alias sshpflocal='ssh -L localhost:6060:localhost:6060 a_yaroshevich@g-01.idl.iv'
-alias sshpf4='ssh -L localhost:6064:localhost:6060 ${g4}'
 alias sshfsgstorage='sshfs -p 2200 gpu-storage@gpu-storage.indatalabs.com:/home/gpu-storage/storage  /mnt/gpu-storage/'
 alias copy='xclip -selection clipboard'
 alias path='readlink -f'
