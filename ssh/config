@@ -1,0 +1,66 @@
+Host g1 
+    HostName gpu-01.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g2 
+    HostName gpu-02.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g3 
+    HostName gpu-03.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g4 
+    HostName gpu-04.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g5 
+    HostName gpu-05.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g6 
+    HostName gpu-06.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g7 
+    HostName gpu-07.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g8 
+    HostName gpu-08.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g9 
+    HostName gpu-09.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g10 
+    HostName gpu-10.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host g11 
+    HostName gpu-11.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host gstorage 
+    HostName gpu-storage.indatalabs.com
+    User a_yaroshevich
+    Port 2200
+
+Host gstorageglobal 
+    HostName gpu-storage.indatalabs.com
+    User gpu-storage
+    Port 2200
+
+
