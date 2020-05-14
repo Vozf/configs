@@ -8,6 +8,7 @@ Loop % winList
     wingettitle, curWin, % "ahk_id " curUID
    if InStr(curWin, "VLC", true) {
       ControlSend,,{space},%curWin%
+      WinActivate, VLC
       break
    }
    else if InStr(curWin, "YouTube", true) or InStr(curWin, "Кухня", true) {
