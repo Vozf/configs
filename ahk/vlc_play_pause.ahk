@@ -8,10 +8,10 @@ Loop % winList
     wingettitle, curWin, % "ahk_id " curUID
    if InStr(curWin, "VLC", true) {
       ControlSend,,{space},%curWin%
-      WinActivate, VLC
+      ;WinActivate, VLC
       break
    }
-   else if InStr(curWin, "YouTube", true) or InStr(curWin, "Кухня", true) {
+   else if InStr(curWin, "- YouTube", true) or InStr(curWin, "Кухня", true) {
 
 	ControlGet, controlID, Hwnd,,Chrome_RenderWidgetHostHWND1,%curWin%
 	
