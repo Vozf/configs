@@ -16,3 +16,5 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
  Return
 
  CapsLock::Send, {Ctrl Down}{Shift Down}{Shift Up}{Ctrl Up}
+ AppsKey::Run, "c:\Program Files\Push2Run\scripts\vlc_play_pause.ahk"
+ 
