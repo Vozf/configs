@@ -178,6 +178,7 @@ tbport() {
 
 alias sshkilltb='ssh  ${defaultg} "killall -r tensorboard"'
 
+alias unmount='sudo umount /mnt/gpu-storage -l'
 alias sshfsgstorage='sshfs -p 2200 gpu-storage@gpu-storage.indatalabs.com:/home/gpu-storage/storage  /mnt/gpu-storage/'
 alias copy='xclip -selection clipboard'
 alias path='readlink -f'
@@ -185,6 +186,7 @@ alias trackscroll='xinput set-prop $(xinput | grep M570 |  awk '\''{print substr
 alias jn='jupyter notebook'
 alias copytogstorage='rsync -arz --info=progress2  ../../new_auto_masks.zip  -e "ssh -p 2200" gpu-storage@gpu-storage.indatalabs.com:~/storage/removebg/datasets/Bag_full_3'
 alias shoot='killall -s KILL -r '
+alias reconnectgstorage='shoot sshfs; unmount; sshfsgstorage'
 
 export -f pf sshg sshpf sshjn sshkilljn remotefs sshjnsettheme sshjnsetjn sshjnsetext jnport tbport 
 
