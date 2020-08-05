@@ -11,7 +11,7 @@ Loop % winList
       ;WinActivate, VLC
       break
    }
-   else if InStr(curWin, "- YouTube", true) or InStr(curWin, "Кухня", true) {
+   else if InStr(curWin, "- YouTube", true) or InStr(curWin, "Кухня", true) or InStr(curWin, "- Google Drive", true) {
 
 	ControlGet, controlID, Hwnd,,Chrome_RenderWidgetHostHWND1,%curWin%
 	
