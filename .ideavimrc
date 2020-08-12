@@ -1,5 +1,6 @@
 " Press `q` to activate AceJump
 map q :action AceAction<CR>
+nnoremap <C-j> J
 noremap <A-V> <C-V>
 
 
@@ -16,3 +17,4 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
