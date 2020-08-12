@@ -188,6 +188,7 @@ alias reconnectgstorage='shoot sshfs; unmount; sshfsgstorage'
 alias vpn='echo -e "$(sudo cat ~/.cisco/pass.txt)\n$(ga okta)" | sudo openconnect --user=alexander.yaroshevic --passwd-on-stdin --authgroup okta-group --no-dtls asa.apalon.com'
 alias copyga='bash -c "sleep 0.3 && ga okta | xclip -selection c"'
 alias shutdown='shutdown -h now'
+alias ga='ga-cmd'
 
 export -f pf sshg sshpf sshjn sshkilljn remotefs sshjnsettheme sshjnsetjn sshjnsetext jnport tbport 
 
