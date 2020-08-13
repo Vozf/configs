@@ -2,7 +2,15 @@
 map q :action AceAction<CR>
 nnoremap <C-j> J
 noremap <A-V> <C-V>
+nnoremap H :action Back<CR>
+nnoremap L :action Forward<CR>
+nnoremap J :action PreviousTab<CR>
+nnoremap K :action NextTab<CR>
+nnoremap U :action NextSplitter<CR>
+imap jj <Esc>
 
+
+set ideajoin
 
 set surround
 set easymotion
