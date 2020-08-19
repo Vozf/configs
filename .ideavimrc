@@ -26,3 +26,5 @@ set hlsearch
 set ignorecase
 set smartcase
 
+
+let g:argtextobj_pairs="(:),[:]"
