@@ -1,4 +1,4 @@
-" Press `q` to activate AceJump
+" Mappings
 map q :action AceAction<CR>
 nnoremap <C-j> J
 noremap <A-V> <C-V>
@@ -9,9 +9,24 @@ nnoremap K :action NextTab<CR>
 nnoremap U :action NextSplitter<CR>
 imap jj <Esc>
 
+" Leader mappings
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 
-set ideajoin
+map <leader>d :action Debug<CR>
+map <leader>r :action Run<CR>
+map <leader>c :action Stop<CR>
 
+map <leader>s :action SelectInProjectView<CR>
+map <leader>h :action Vcs.ShowTabbedFileHistory<CR>
+
+" Reformat the current line only
+map <leader>l V:action ReformatCode<CR>
+
+map <leader>b :action ToggleLineBreakpoint<CR>
+map <leader>o :action FileStructurePopup<CR>
+
+" Plugins
 set surround
 set easymotion
 set multiple-cursors
@@ -19,12 +34,20 @@ set commentary
 set ReplaceWithRegister
 set argtextobj
 set textobj-entire
+set exchange
 
 
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set showmode
+set scrolloff=5
 
+# Idea specific settings
+set ideajoin
+set ideastatusicon=gray
+
+set clipboard+=unnamed
 
 let g:argtextobj_pairs="(:),[:]"
