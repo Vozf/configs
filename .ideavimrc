@@ -6,7 +6,7 @@ nnoremap H :action Back<CR>
 nnoremap L :action Forward<CR>
 nnoremap J :action PreviousTab<CR>
 nnoremap K :action NextTab<CR>
-nnoremap U :action NextSplitter<CR>
+nnoremap x "_x
 imap jj <Esc>
 
 " Leader mappings
@@ -14,16 +14,35 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 map <leader>d :action Debug<CR>
+map <leader>D :action ChooseDebugConfiguration<CR>
 map <leader>r :action Run<CR>
+map <leader>R :action ChooseRunConfiguration<CR>
+map <leader>n :action Resume<CR>
 map <leader>c :action Stop<CR>
+map <leader>e :action EvaluateExpression<CR>
+map <leader>b :action ToggleLineBreakpoint<CR>
 
-map <leader>s :action SelectInProjectView<CR>
-map <leader>h :action Vcs.ShowTabbedFileHistory<CR>
+map <leader>ge :action ShowExecutionPoint<CR>
+map <leader>gn :action ShowNavBar<CR>
+map <leader>gr :action GotoNextError<CR>
+map <leader>gR :action GotoPreviousError<CR>
+
+map <leader>f :action HideAllWindows<CR>
+map <leader>p :action SelectInProjectView<CR>
+map <leader>q :action QuickTypeDefinition<CR>
+map <leader>w :action NextSplitter<CR>
+
+map <leader>mr :action Run Mypy Daemon<CR>
+map <leader>mp :action Previous Mypy Error<CR>
+map <leader>mn :action Next Mypy Error<CR>
+
+map <leader>s :action GotoSuperMethod<CR>
+map <leader>a :action GotoDeclaration<CR>
+map <leader>x :action CloseContent<CR>
 
 " Reformat the current line only
 map <leader>l V:action ReformatCode<CR>
 
-map <leader>b :action ToggleLineBreakpoint<CR>
 map <leader>o :action FileStructurePopup<CR>
 
 " Plugins
@@ -50,4 +69,4 @@ set ideastatusicon=gray
 
 set clipboard+=unnamed
 
-let g:argtextobj_pairs="(:),[:]"
+let g:argtextobj_pairs="(:),[:],{:}"
