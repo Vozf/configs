@@ -26,9 +26,11 @@ map <leader>ge :action ShowExecutionPoint<CR>
 map <leader>gn :action ShowNavBar<CR>
 map <leader>gr :action GotoNextError<CR>
 map <leader>gR :action GotoPreviousError<CR>
+map <leader>gp :action SelectInProjectView<CR>
+map <leader>ga :action Annotate<CR>
+map <leader>gs :action GotoSuperMethod<CR>
 
 map <leader>f :action HideAllWindows<CR>
-map <leader>p :action SelectInProjectView<CR>
 map <leader>q :action QuickTypeDefinition<CR>
 map <leader>w :action NextSplitter<CR>
 
@@ -36,7 +38,6 @@ map <leader>mr :action Run Mypy Daemon<CR>
 map <leader>mp :action Previous Mypy Error<CR>
 map <leader>mn :action Next Mypy Error<CR>
 
-map <leader>s :action GotoSuperMethod<CR>
 map <leader>a :action GotoDeclaration<CR>
 map <leader>x :action CloseContent<CR>
 
@@ -62,6 +63,7 @@ set ignorecase
 set smartcase
 set showmode
 set scrolloff=5
+set ideavimsupport+=singleline
 
 # Idea specific settings
 set ideajoin
