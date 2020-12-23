@@ -1,5 +1,29 @@
+" Plugins
+set surround
+set easymotion
+set multiple-cursors
+set commentary
+set ReplaceWithRegister
+set argtextobj
+set textobj-entire
+set exchange
+
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set showmode
+set scrolloff=5
+set ideavimsupport+=singleline
+
+# Idea specific settings
+set ideajoin
+set ideastatusicon=gray
+
+set clipboard+=unnamed
+
 " Mappings
-map q :action AceAction<CR>
+map q <leader><leader>s
 nnoremap <C-j> J
 noremap <A-V> <C-V>
 nnoremap H :action Back<CR>
@@ -46,29 +70,9 @@ map <leader>l V:action ReformatCode<CR>
 
 map <leader>o :action FileStructurePopup<CR>
 
-" Plugins
-set surround
-set easymotion
-set multiple-cursors
-set commentary
-set ReplaceWithRegister
-set argtextobj
-set textobj-entire
-set exchange
-
-
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-set showmode
-set scrolloff=5
-set ideavimsupport+=singleline
-
-# Idea specific settings
-set ideajoin
-set ideastatusicon=gray
-
-set clipboard+=unnamed
-
 let g:argtextobj_pairs="(:),[:],{:}"
+
+noremap h <NOP>
+noremap j <NOP>
+noremap k <NOP>
+noremap l <NOP>
