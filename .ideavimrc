@@ -1,6 +1,7 @@
 " Plugins
 set surround
 set easymotion
+
 set multiple-cursors
 set commentary
 set ReplaceWithRegister
@@ -16,13 +17,15 @@ set showmode
 set scrolloff=5
 set ideavimsupport+=singleline
 
-# Idea specific settings
+" Idea specific settings
 set ideajoin
 set ideastatusicon=gray
 
 set clipboard+=unnamed
 
+let mapleader=" "
 " Mappings
+
 map q <leader><leader>s
 nnoremap <C-j> J
 noremap <A-V> <C-V>
@@ -35,7 +38,6 @@ imap jj <Esc>
 
 " Leader mappings
 nnoremap <SPACE> <Nop>
-let mapleader=" "
 
 map <leader>d :action Debug<CR>
 map <leader>D :action ChooseDebugConfiguration<CR>
@@ -76,3 +78,4 @@ noremap h <NOP>
 noremap j <NOP>
 noremap k <NOP>
 noremap l <NOP>
+
