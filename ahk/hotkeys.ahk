@@ -15,6 +15,15 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
       Send, {Volume_Mute}
  Return
 
+; prevent double click on middle button
+MButton::	
+	If (A_PriorHotkey=A_ThisHotkey && A_TimeSincePriorHotkey < 150)
+		return
+	Send {%A_ThisHotkey% down}
+	KeyWait %A_ThisHotkey%
+	Send {%A_ThisHotkey% up}
+Return
+
  CapsLock::Send, {Ctrl Down}{Shift Down}{Shift Up}{Ctrl Up}
  AppsKey::Run, "c:\Program Files\AutoHotKey\scripts\vlc_play_pause.ahk"
  Alt & F11::Run, "c:\Program Files\AutoHotKey\scripts\key.ahk"
