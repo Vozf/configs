@@ -1,5 +1,5 @@
 Win
-- cursor Glassticor https://7themes.su/stuff/kursory_windows/glassticor/7-1-0-183 
+- cursor in cursor folder
 - vlc recents regex `^(?!directory).*$`
 
 Linux
