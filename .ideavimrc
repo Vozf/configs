@@ -1,6 +1,7 @@
 " Plugins
 set surround
 set easymotion
+set sneak
 
 set multiple-cursors
 set commentary
@@ -16,6 +17,7 @@ set smartcase
 set showmode
 set scrolloff=5
 set ideavimsupport+=singleline
+set textobj-indent
 
 " Idea specific settings
 set ideajoin
