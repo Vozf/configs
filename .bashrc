@@ -145,7 +145,7 @@ sshkilljn() { ssh ${1:-$defaultg} "fuser -k ${2:-$(jnport "$1")}/tcp"; }
 sshjnsettheme() { ssh ${1:-$defaultg} "export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH";source activate ${2:-rnd}; pip install jupyterthemes; jt -t oceans16 -f roboto -cellw 95% -N -cursc x"; }
 sshjnsetjn() { ssh ${1:-$defaultg} "export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH";source activate ${2:-rnd}; conda install -y nb_conda; python -m ipykernel install --user --name ${2:-rnd}"; }
 sshjnsetext() { ssh ${1:-$defaultg} "export PATH="/home/a_yaroshevich/anaconda3/bin:$PATH";source activate ${2:-rnd};  conda install -y -c conda-forge jupyter_contrib_nbextensions; jupyter nbextensions_configurator enable --user"; }
-remotefs() { sshfs ${1:-$defaultg}:/${2:-/} ${3:-~/remote}; }
+remotefs() { sshfs ${1:-$defaultg}:/${2:-/home} ${3:-~/remote}; }
 
 jnport() {
 	base_port=880;
@@ -176,31 +176,38 @@ tbport() {
 
 alias sshkilltb='ssh  ${defaultg} "killall -r tensorboard"'
 
-alias unmount='sudo umount /mnt/gpu-storage -l'
-alias sshfsgstorage='sshfs -p 2200 gpu-storage@gpu-storage.indatalabs.com:/home/gpu-storage/storage  /mnt/gpu-storage/'
+alias remount='sudo umount ~/remote -l; shoot sshfs; sshfsremote'
+alias sshfsremote='sshfs -p 22 everest18:projects/ ~/remote'
+alias remountmac='sudo umount ~/remotemac -l; shoot sshfs; sshfsremotemac'
+alias sshfsremotemac='sshfs -p 22 mac:projects/pixomatic ~/remotemac'
 alias copy='xclip -selection clipboard'
 alias path='readlink -f'
+alias sd='sudo shutdown -h now'
 alias trackscroll='xinput set-prop $(xinput | grep M570 |  awk '\''{print substr($5,4,2)}'\'') "libinput Scroll Method Enabled" 0, 0, 1 && xinput set-prop $(xinput | grep M570 |  awk '\''{print substr($5,4,2)}'\'') "libinput Button Scrolling Button" 8'
 alias jn='jupyter notebook'
 alias copytogstorage='rsync -arz --info=progress2  ../../new_auto_masks.zip  -e "ssh -p 2200" gpu-storage@gpu-storage.indatalabs.com:~/storage/removebg/datasets/Bag_full_3'
 alias close='killall -s INT -r '
 alias shoot='killall -s KILL -r '
-alias reconnectgstorage='shoot sshfs; unmount; sshfsgstorage'
-alias vpn='echo -e "$(sudo cat ~/.cisco/pass.txt)\n$(ga okta)" | sudo openconnect --user=alexander.yaroshevic --passwd-on-stdin --authgroup okta-group --no-dtls -b asa.apalon.com'
+alias reconnectremote='shoot sshfs; unmount; sshfsremote'
+alias vpn='echo -e "$(sudo cat ~/.cisco/pass.txt)\n$(ga okta)" | sudo openconnect --user=alexander.yaroshevic --passwd-on-stdin --authgroup okta-group --no-dtls --servercert pin-sha256:o+IlpWRoLj/Vp0kr/45dFVgpciVUrP/pu60yJHqgLNk -b asa.apalon.com'
 alias copyga='bash -c "sleep 0.3 && ga okta | xclip -selection c"'
 alias shutdown='shutdown -h now'
 alias ga='ga-cmd'
 alias sudo='sudo '
+alias scp_local='scp -r -3'
 
 
 export -f pf sshg sshpf sshjn sshkilljn remotefs sshjnsettheme sshjnsetjn sshjnsetext jnport tbport 
 
 set -o vi
 export PATH="/home/$USER/bin:$PATH"
-
+export PATH="/home/$USER/.local/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 if [ -f /etc/bash_completion ]; then
      . /etc/bash_completion 
 fi
+
+export GOOGLE_APPLICATION_CREDENTIALS=~/gcp_key.json
 
