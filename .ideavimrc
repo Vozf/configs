@@ -1,7 +1,6 @@
 " Plugins
 set surround
 set easymotion
-set sneak
 
 set multiple-cursors
 set commentary
