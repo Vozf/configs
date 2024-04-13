@@ -3,9 +3,8 @@ setlocal enabledelayedexpansion
 REM Loop through all command-line arguments
 for %%i in (%*) do (
     REM Get the resolution of the input video
-    for /f "tokens=1,2 delims=x" %%a in ('ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "%%~i" 2^>^&1') do (
+    for /f %%a in ('ffprobe -v error -select_streams v^:0 -show_entries stream^=width -of default^=noprint_wrappers^=1^:nokey^=1 "%%~i"') do (
         set /a width=%%a
-        set /a height=%%b
     )
 
     REM Check if width is greater than 1920 or height is greater than 1080
