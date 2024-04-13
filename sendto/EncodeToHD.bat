@@ -9,7 +9,7 @@ for %%i in (%*) do (
     )
 
     REM Check if width is greater than 1280 or height is greater than 720
-    if !width! gtr 1920 (
+    if !width! gtr 1280 (
         REM Resize the video
         ffmpeg -hwaccel cuda -i "%%~i" -c:v hevc_nvenc -vf "scale=1280:-2" -pix_fmt yuv420p -c:a aac -rc:v vbr -cq:v 28 -preset fast "%%~dpi%%~ni_reencoded.mp4"
     ) else (
