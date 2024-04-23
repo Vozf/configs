@@ -204,7 +204,7 @@ export PATH="/home/$USER/bin:$PATH"
 export PATH="/home/$USER/.local/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fzf --bash)"
 if [ -f /etc/bash_completion ]; then
      . /etc/bash_completion 
 fi
